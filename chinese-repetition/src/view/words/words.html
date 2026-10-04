@@ -1,15 +1,18 @@
+<div class="filterer"></div>
 <div class="tablediv">
-    <a routerLink="/add" routerLinkActive="active">add a new word</a>
-    <div class="thcontainer">
-        <div>chinese</div>
-        <div>pinyin</div>
-        <div>english</div>
-        <div>count</div>
-        <div></div>
+    <div class="backdropblur">
+        <a routerLink="/add" routerLinkActive="active">add a new word</a>
+        <div class="thcontainer">
+            <div>chinese</div>
+            <div>pinyin</div>
+            <div>english</div>
+            <div>count</div>
+            <div></div>
+        </div>
     </div>
     <div class="faketbody">
-        @for (item of items(); track item[0]) {
-        <div class="tdcontainer">
+        @for (item of items(); track $index) {
+        <div class="tdcontainer" [class.even]="$index % 2 === 0">
             <div>{{ item[1] }}</div>
             <div>{{ item[2] }}</div>
             <div>{{ item[3] }}</div>
@@ -17,5 +20,13 @@
             <div><button (click)="deleteItem(item[0])">delete</button></div>
         </div>
         }
+
+        <div class="tdcontainer" [class.even]="(items().length) % 2 === 0">
+            <div>___</div>
+            <div>___</div>
+            <div>___</div>
+            <div>___</div>
+            <div>___</div>
+        </div>
     </div>
 </div>

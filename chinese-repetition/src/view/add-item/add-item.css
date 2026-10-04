@@ -7,7 +7,7 @@
     width: 100%;
 }
 input {
-    background-color: #222;
+    background-color: var(--background-color);
     font-size: xx-large;
     border: none;
     outline: none;

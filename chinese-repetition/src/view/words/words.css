@@ -1,134 +1,112 @@
-* {
-    box-sizing: border-box;
-    color: white;
+.tablediv {
+    width: 100vw;
+    min-width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-
+.filterer {
+    backdrop-filter: blur(0.5rem);
+    height: 7rem;
+    width: 110vw;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+.backdropblur {
+    height: 7rem;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50vw;
+    min-width: 600px;
+    transform: translateX(-50%);
+    z-index: 2;
+}
 a {
-    background-color: white;
-    color: #222;
+    left: 0;
     width: 100%;
-    text-align: center;
+    min-width: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 3.5rem;
-    border-radius: 0rem 1rem 0 0;
-    text-decoration: none;
-    border-top: 0.3rem solid white;
+    position: absolute;
+    top: 0;
 }
-
-.tablediv {
-    margin-top: 5vh;
+.thcontainer {
+    left: 0;
+    width: 100%;
+    min-width: 0;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
+    height: 3.5rem;
+    position: absolute;
+    top: 3.5rem;
+    border-bottom: 1px solid #ccc;
+}
+.thcontainer > div {
+    flex: 1;
+    text-align: center;
+    height: 3.5rem;
+    line-height: 3.5rem;
+}
+.faketbody {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    overflow-y: scroll;
     width: 50vw;
     min-width: 600px;
-    border-radius: 2rem;
-    border: solid white 0.75rem;
-
-    overflow: hidden;
-    position: relative;
-    isolation: isolate;
+    height: calc(100vh - 5rem);
+    height: calc(100dvh);
+    transform: translateX(-50%);
+    z-index: 0;
+    scrollbar-width: none;
 }
-
-.thcontainer {
-    border-bottom: 0.2rem solid white;
-    text-align: center;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+.tdcontainer {
     width: 100%;
-    margin: 0;
-    padding: 0;
-    position: relative;
-}
-
-.thcontainer > div {
-    /* Changed from width: 20% to flex: 1 for perfect distribution */
-    flex: 1;
-    min-width: 0; /* CRITICAL: Allows flex items to shrink below content size */
-    height: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-right: solid gray 1px;
-    padding: 0.2rem;
-    word-break: break-word; /* Prevents long text from pushing out */
-}
-
-.thcontainer > div:last-child {
-    border-right: none;
-}
-
-.menu-icon {
-    position: absolute;
-    right: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    cursor: pointer;
-}
-.menu-icon span {
-    display: block;
-    width: 20px;
-    height: 2px;
-    background-color: white;
-}
-
-.faketbody {
-    width: 100%;
-    height: calc(70vh - 3.5rem);
-    overflow-y: auto;
-    overflow-x: hidden;
-
-    border-bottom-left-radius: 2rem;
-    border-bottom-right-radius: 2rem;
-}
-
-.faketbody::-webkit-scrollbar {
-    display: none;
-}
-
-.tdcontainer {
-    border-bottom: 0.2rem solid white;
-    text-align: center;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-    margin: 0;
-    padding: 0;
 }
 
 .tdcontainer > div {
-    flex: 1;
-    min-width: 0;
-    height: 5rem;
+    width: 20%;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-right: solid gray 1px;
-    padding: 0.2rem;
-    word-break: break-word;
+    min-height: 3.5rem;
+    max-height: 7rem;
+    padding: 0.5rem;
+    text-align: center;
+    border-right: solid dimgray 1px;
 }
-
-.tdcontainer > div:last-child {
-    border-right: none;
+.tdcontainer:first-of-type {
+    margin-top: 7rem;
 }
-
-.tdcontainer:last-child {
-    border-bottom: none;
+.tdcontainer {
+    div:last-of-type {
+        border-right: none;
+    }
 }
-
+.even {
+    background-color: var(--secondary-color);
+}
 button {
-    background-color: #222;
+    background-color: var(--secondary-color);
     color: white;
     border: none;
-    padding: 8px;
-    margin: 8px;
-    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    transition: all 0.2s ease-in-out;
     cursor: pointer;
+    font-size: medium;
+}
+.even button {
+    background-color: var(--background-color);
 }

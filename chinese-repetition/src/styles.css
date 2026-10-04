@@ -1,7 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 
+:root {
+    --background-color: #222;
+    --secondary-color: #444;
+}
+
 body {
-    background: #222;
+    background: var(--background-color);
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 * {
     color: white;
