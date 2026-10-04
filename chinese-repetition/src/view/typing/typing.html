@@ -2,11 +2,11 @@
     <div class="typing-container">
         <div class="word-display">
             @if (!modeBool()) {
-            <h3>CN ➜ EN</h3>
-            <h2>{{ chineseWord().chinese }} - {{ chineseWord().pinyin }}</h2>
+            <h2>{{ chineseWord().chinese }}</h2>
             } @else {
-            <h3>EN ➜ CN</h3>
             <h2>{{ chineseWord().english }}</h2>
+            } @if (modePin() && !modeBool()) {
+            <h3 class="pinyin-text">{{ chineseWord().pinyin }}</h3>
             }
         </div>
 

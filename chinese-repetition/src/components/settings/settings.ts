@@ -8,8 +8,10 @@ import { CommService } from '../../services/comm-service';
   templateUrl: './settings.html',
 })
 export class Settings {
-    mode = signal('EN ➙ CN');
+    mode = signal('EN');
     modeClass = signal(false);
+    modePinClass = signal(false);
+
     @Output() modeChangeEvent = new EventEmitter<void>();
     constructor(private commService: CommService) {
 
@@ -17,11 +19,21 @@ export class Settings {
   async modeChange() {
       await this.commService.switchSet();
       if (await this.commService.checkSet()) {
-          this.mode.set('EN ➙ CN');
+          this.mode.set('EN');
           this.modeClass.set(false);
+          this.modePinChange()
       } else {
-        this.mode.set('CN ➙ EN');
+        this.mode.set('CN');
         this.modeClass.set(true);
+      }
+      this.modeChangeEvent.emit();
+  }
+  async modePinChange() {
+      await this.commService.switchPin();
+      if (await this.commService.checkPin()) {
+          this.modePinClass.set(true);
+      } else {
+          this.modePinClass.set(false);
       }
       this.modeChangeEvent.emit();
   }

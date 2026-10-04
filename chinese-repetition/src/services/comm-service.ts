@@ -6,6 +6,7 @@ import { ChineseWord } from '../types/chineseWordType';
 @Service()
 export class CommService {
     chineseSet = signal(true);
+    pinSet = signal(false);
 
 
     async switchSet() {
@@ -13,6 +14,12 @@ export class CommService {
     }
     async checkSet(): Promise<boolean> {
         return this.chineseSet();
+    }
+    async switchPin() {
+        this.pinSet.update((value) => !value);
+    }
+    async checkPin(): Promise<boolean> {
+        return this.pinSet();
     }
     async addItem(chinese: string, english: string) {
         return await invoke('add_item', { chinese, english });

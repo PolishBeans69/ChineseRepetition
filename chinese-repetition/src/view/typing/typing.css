@@ -71,6 +71,19 @@ input::placeholder {
     justify-content: center;
     font-size: large;
     margin: 0.5rem;
+    text-align: center;
+}
+
+.direction-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    vertical-align: middle;
+    filter: invert(1);
+}
+
+.pinyin-text {
+    font-size: 1.5rem;
+    opacity: 0.8;
 }
 
 * {

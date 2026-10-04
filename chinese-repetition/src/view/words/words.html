@@ -1,13 +1,20 @@
 <div class="filterer"></div>
 <div class="tablediv">
     <div class="backdropblur">
-        <a routerLink="/add" routerLinkActive="active">add a new word</a>
         <div class="thcontainer">
             <div>chinese</div>
             <div>pinyin</div>
             <div>english</div>
             <div>count</div>
-            <div></div>
+            <div>
+                <a
+                    routerLink="/add"
+                    routerLinkActive="active"
+                    aria-label="add a new word"
+                    title="add a new word"
+                    ><div><img src="assets/plus.svg" alt="" /></div
+                ></a>
+            </div>
         </div>
     </div>
     <div class="faketbody">
@@ -17,7 +24,16 @@
             <div>{{ item[2] }}</div>
             <div>{{ item[3] }}</div>
             <div>{{ item[4] }}</div>
-            <div><button (click)="deleteItem(item[0])">delete</button></div>
+            <div>
+                <button
+                    type="button"
+                    (click)="deleteItem(item[0])"
+                    aria-label="delete word"
+                    title="delete word"
+                >
+                    <img src="assets/delete.svg" alt="" />
+                </button>
+            </div>
         </div>
         }
 

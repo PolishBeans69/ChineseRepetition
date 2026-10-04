@@ -18,6 +18,7 @@ export class Typing implements OnInit {
     incorrectSignal = signal(false);
     mode = signal('');
     modeBool = signal(true);
+    modePin = signal(false);
 
     chineseWord = signal<ChineseWord>({
         id: 0,
@@ -44,6 +45,10 @@ export class Typing implements OnInit {
     async checkSet(): Promise<boolean> {
         return await this.commService.checkSet();
     }
+    async checkPin(): Promise<boolean> {
+        return await this.commService.checkPin();
+    }
+
 
     async getItem() {
         const item: any = await this.commService.getItem();
@@ -61,11 +66,13 @@ export class Typing implements OnInit {
             }
         }
         this.modeBool.set(await this.checkSet());
+        this.modePin.set(await this.checkPin());
         this.cdr.markForCheck();
     }
 
     async onModeChange() {
         this.modeBool.set(await this.checkSet());
+        this.modePin.set(await this.checkPin());
         this.cdr.markForCheck();
     }
 
@@ -100,15 +107,21 @@ export class Typing implements OnInit {
         }, 3000);
     }
 
+    private normalizeInput(value: string): string {
+        return value.trim().toLowerCase();
+    }
+
     async onEnter() {
+        const input = this.normalizeInput(this.userInput());
+
         if (this.modeBool()) {
-            if (this.userInput().trim() === this.chineseWord().chinese.trim()) {
+            if (input === this.normalizeInput(this.chineseWord().chinese)) {
                 await this.correct();
             } else {
                 await this.incorrect();
             }
         } else {
-            if (this.chineseWord().english.trim().includes(this.userInput().trim())) {
+            if (this.normalizeInput(this.chineseWord().english).includes(input) && input.length > 0) {
                 await this.correct();
             } else {
                 await this.incorrect();

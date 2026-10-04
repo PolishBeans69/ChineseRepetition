@@ -5,6 +5,16 @@
         [class.english]="!modeClass()"
         [class.chinese]="modeClass()"
     >
-        <span class="mode-label">{{ mode() }}</span>
+        <span class="mode-label">{{ mode() }} </span>
+        <img class="direction-icon" src="assets/arrowR.svg" alt="to" />
+        <span class="mode-label"> {{ modeClass() ? 'EN' : 'CN' }}</span>
     </button>
+    @if (modeClass() ) {
+    <button
+        type="button"
+        (click)="modePinChange()"
+        [class.pinyin]="modePinClass()"
+    >
+        Pinyin</button
+    >}
 </div>

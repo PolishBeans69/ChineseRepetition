@@ -8,7 +8,7 @@
 }
 .filterer {
     backdrop-filter: blur(0.5rem);
-    height: 7rem;
+    height: 3.5rem;
     width: 110vw;
     position: absolute;
     top: 0;
@@ -27,15 +27,33 @@
     z-index: 2;
 }
 a {
-    left: 0;
-    width: 100%;
-    min-width: 0;
+    div {
+        width: 1.5rem;
+        height: 1.5rem;
+        background-color: var(--secondary-color);
+        padding: 0.5rem;
+        padding-right: 1rem;
+        padding-left: 1rem;
+        border-radius: 1rem;
+        img {
+            width: 1.5rem;
+            height: 1.5rem;
+            filter: invert(1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
     display: flex;
     justify-content: center;
     align-items: center;
     height: 3.5rem;
-    position: absolute;
-    top: 0;
+}
+.add-word img {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.5rem;
+    filter: invert(1);
 }
 .thcontainer {
     left: 0;
@@ -46,7 +64,7 @@ a {
     align-items: center;
     height: 3.5rem;
     position: absolute;
-    top: 3.5rem;
+    top: 0rem;
     border-bottom: 1px solid #ccc;
 }
 .thcontainer > div {
@@ -87,7 +105,7 @@ a {
     border-right: solid dimgray 1px;
 }
 .tdcontainer:first-of-type {
-    margin-top: 7rem;
+    margin-top: 3.5rem;
 }
 .tdcontainer {
     div:last-of-type {
@@ -106,6 +124,13 @@ button {
     transition: all 0.2s ease-in-out;
     cursor: pointer;
     font-size: medium;
+}
+
+button img {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    filter: invert(1);
 }
 .even button {
     background-color: var(--background-color);

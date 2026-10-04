@@ -6,7 +6,7 @@ import { Home } from "../view/home/home";
 import { AddItem } from "../view/add-item/add-item";
 
 export const routes: Routes = [
-    { path: "", redirectTo: "/home", pathMatch: "full" },
+    { path: "", redirectTo: "/typing", pathMatch: "full" },
     { path: "typing", component: Typing },
     { path: "choose", component: Choose },
     { path: "words", component: Words },

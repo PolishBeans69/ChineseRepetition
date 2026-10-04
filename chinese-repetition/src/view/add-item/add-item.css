@@ -23,3 +23,8 @@ input::placeholder {
     justify-content: center;
     width: 100%;
 }
+.direction-icon {
+    width: 5rem;
+    height: 5rem;
+    filter: invert(1);
+}
