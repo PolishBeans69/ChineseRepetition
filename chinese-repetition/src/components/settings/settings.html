@@ -1,0 +1,10 @@
+<div class="maincontainer">
+    <button
+        type="button"
+        (click)="modeChange()"
+        [class.english]="!modeClass()"
+        [class.chinese]="modeClass()"
+    >
+        <span class="mode-label">{{ mode() }}</span>
+    </button>
+</div>

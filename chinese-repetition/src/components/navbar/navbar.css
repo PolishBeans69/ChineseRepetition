@@ -1,0 +1,38 @@
+.maincontainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.3rem 0.5rem;
+    background-color: #222;
+    border: 2px solid white;
+    border-radius: 2rem;
+    height: 3.5rem;
+    box-sizing: border-box;
+    pointer-events: auto;
+}
+
+a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 900;
+    padding: 0.5rem 1.25rem;
+    border-radius: 1.5rem;
+    background-color: #222;
+    color: white;
+    transition: all 0.2s ease-in-out;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+a:hover {
+    background-color: #555;
+}
+
+a.active {
+    background-color: white;
+    color: black;
+}

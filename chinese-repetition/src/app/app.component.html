@@ -1,0 +1,10 @@
+<nav>
+    <app-navbar></app-navbar>
+</nav>
+<div class="setting">
+    <app-settings (modeChangeEvent)="onModeChange()"></app-settings>
+</div>
+
+<main class="container">
+    <router-outlet (activate)="onActivate($event)" (deactivate)="onDeactivate()" />
+</main>

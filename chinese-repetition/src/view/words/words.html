@@ -1,0 +1,21 @@
+<div class="tablediv">
+    <a routerLink="/add" routerLinkActive="active">add a new word</a>
+    <div class="thcontainer">
+        <div>chinese</div>
+        <div>pinyin</div>
+        <div>english</div>
+        <div>count</div>
+        <div></div>
+    </div>
+    <div class="faketbody">
+        @for (item of items(); track item[0]) {
+        <div class="tdcontainer">
+            <div>{{ item[1] }}</div>
+            <div>{{ item[2] }}</div>
+            <div>{{ item[3] }}</div>
+            <div>{{ item[4] }}</div>
+            <div><button (click)="deleteItem(item[0])">delete</button></div>
+        </div>
+        }
+    </div>
+</div>

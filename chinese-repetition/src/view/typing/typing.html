@@ -1,0 +1,33 @@
+<div class="main-container">
+    <div class="typing-container">
+        <div class="word-display">
+            @if (!modeBool()) {
+            <h3>CN ➜ EN</h3>
+            <h2>{{ chineseWord().chinese }} - {{ chineseWord().pinyin }}</h2>
+            } @else {
+            <h3>EN ➜ CN</h3>
+            <h2>{{ chineseWord().english }}</h2>
+            }
+        </div>
+
+        <input
+            type="text"
+            id="typing-input"
+            placeholder="______"
+            [ngModel]="userInput()"
+            (ngModelChange)="userInput.set($event)"
+            (keyup.enter)="onEnter()"
+            autofocus
+        />
+    </div>
+</div>
+<div class="correct" [class.shown]="correctSignal()">
+    <h1>CORRECT</h1>
+    <h2>{{ previousWord().chinese }} - {{ previousWord().pinyin }}</h2>
+    <h2>{{ previousWord().english }}</h2>
+</div>
+<div class="incorrect" [class.shown]="incorrectSignal()">
+    <h1>INCORRECT</h1>
+    <h2>{{ previousWord().chinese }} - {{ previousWord().pinyin }}</h2>
+    <h2>{{ previousWord().english }}</h2>
+</div>

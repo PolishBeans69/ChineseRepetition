@@ -1,0 +1,22 @@
+<div class="main-container">
+    <div class="typing-container">
+        <input
+            type="text"
+            id="typing-input"
+            placeholder="EN"
+            [ngModel]="userInputEnglish()"
+            (ngModelChange)="userInputEnglish.set($event)"
+            (keyup.enter)="onEnter()"
+            autofocus
+        />
+        <input
+            type="text"
+            id="typing-input"
+            placeholder="CN"
+            [ngModel]="userInputChinese()"
+            (ngModelChange)="userInputChinese.set($event)"
+            (keyup.enter)="onEnter()"
+            autofocus
+        />
+    </div>
+</div>
